@@ -22,9 +22,10 @@
 
 (in-package #:sdl-vulkan)
 
-(if (= 8 (foreign-type-size :pointer))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (if (= 8 (foreign-type-size :pointer))
     (defctype SDL_Vk_Non_Dispatch_Handle :pointer)
-    (defctype SDL_Vk_Non_Dispatch_Handle :uint64))
+    (defctype SDL_Vk_Non_Dispatch_Handle :uint64)))
 
 (defctype SDL_bool :uint32)
 

@@ -37,7 +37,7 @@
   (p-count (:pointer :unsigned-int))
   (p-names (:pointer (:pointer :char))))
 
-(defcfun ("SDL_Vulkan_GetVkInstanceProcAddr" SDL_Vulkan_GetVkInstanceProcAddr) :void)
+(defcfun ("SDL_Vulkan_GetVkInstanceProcAddr" SDL_Vulkan_GetVkInstanceProcAddr) (:pointer :void))
 
 (defcfun ("SDL_Vulkan_LoadLibrary" SDL_Vulkan_LoadLibrary) :int
   (path (:pointer :char)))
