@@ -24,7 +24,7 @@
 
 (defun sdl-create-surface (instance window)
   (with-foreign-object (p-surface 'SDL_SurfaceKhr)
-    (if (zerop (SDL_Vulkan_CreateSurface instance (sdl2-ffi::sdl-window-ptr window) p-surface))
+    (if (zerop (SDL_Vulkan_CreateSurface (sdl2-ffi::sdl-window-ptr window) instance p-surface))
 	(error "create surface failed")
 	(mem-ref p-surface 'SDL_SurfaceKhr))))
 

@@ -1,5 +1,5 @@
 (defpackage #:sdl-vulkan-test
-  (:use #:cl #:sdl2 #:sdl-vulkan #:cffi))
+  (:use #:cl #:sdl2 #:sdl-vulkan))
 
 (in-package #:sdl-vulkan-test)
 
