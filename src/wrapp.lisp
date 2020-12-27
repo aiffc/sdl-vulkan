@@ -45,7 +45,7 @@
 	      (if (zerop (SDL_Vulkan_GetInstanceExtensions (sdl2-ffi::sdl-window-ptr window) p-count p-names))
 		  (error "second get faield")
 		  (loop for i from 0 below count
-			collect (mem-aref p-names '(:pointer :char) i)))))))))
+			collect (foreign-string-to-lisp (mem-aref p-names '(:pointer :char) i))))))))))
 
 (defun sdl-get-instance-procaddr ()
   (SDL_Vulkan_GetVkInstanceProcAddr))

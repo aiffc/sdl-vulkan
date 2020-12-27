@@ -30,3 +30,4 @@
   (t (:default "libSDL2")))
 
 (cffi:use-foreign-library libsdl2)
+

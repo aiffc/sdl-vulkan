@@ -7,7 +7,8 @@
 	       (:file "src/sdl-loader")
 	       (:file "src/types")
 	       (:file "src/functions")
-	       (:file "src/wrapp"))
+	       (:file "src/wrapp")
+	       (:file "test/test"))
   :description "for sdl vulkan")
 
 
