@@ -32,8 +32,8 @@
   (with-foreign-objects ((w :int)
 			 (h :int))
     (SDL_Vulkan_GetDrawableSize (sdl2-ffi::sdl-window-ptr window) w h)
-    (list :w (mem-ref w :int)
-	  :h (mem-ref h :int))))
+    (list :width (mem-ref w :int)
+	  :height (mem-ref h :int))))
 
 (defun sdl-get-instance-extensions (window)
   (with-foreign-object (p-count :unsigned-int)
