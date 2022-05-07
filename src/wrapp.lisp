@@ -24,16 +24,16 @@
 
 (defun sdl-create-surface (instance window)
   (with-foreign-object (p-surface 'SDL_SurfaceKhr)
-    (if (zerop (SDL_Vulkan_CreateSurface (sdl2-ffi::sdl-window-ptr window) instance p-surface))
+    (if (zerop (SDL_Vulkan_CreateSurface (sdl2-ffi::sdl-window-ptr window) (vk::instance-handle instance) p-surface))
 	(error "create surface failed")
-	(mem-ref p-surface 'SDL_SurfaceKhr))))
+	(vk::make-surface-khr-wrapper (mem-ref p-surface 'SDL_SurfaceKhr)))))
 
 (defun sdl-get-drawable-size (window)
   (with-foreign-objects ((w :int)
 			 (h :int))
     (SDL_Vulkan_GetDrawableSize (sdl2-ffi::sdl-window-ptr window) w h)
-    (list :width (mem-ref w :int)
-	  :height (mem-ref h :int))))
+    (vk:make-extent-2d :width (mem-ref w :int)
+		       :height (mem-ref h :int))))
 
 (defun sdl-get-instance-extensions (window)
   (with-foreign-object (p-count :unsigned-int)
